@@ -39,3 +39,7 @@ inline std::string convert(uint64_t x, char* alphabet, size_t base) {
     std::reverse(digits.begin(), digits.end());
     return digits;
 }
+
+int64_t repair(char* x, size_t length, char* repair_alphabet, size_t base) {
+    return 0;
+}
