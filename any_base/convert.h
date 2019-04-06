@@ -1,6 +1,8 @@
 #include <string>
 #include <algorithm>
 #include <cstdint>
+#include <stdexcept>
+
 
 inline std::string convert(uint64_t x, char* alphabet, size_t base, char sign) {
     if (!x) {
@@ -40,6 +42,18 @@ inline std::string convert(uint64_t x, char* alphabet, size_t base) {
     return digits;
 }
 
-int64_t repair(char* x, size_t length, char* repair_alphabet, size_t base) {
-    return 0;
+int64_t repair(char* x, size_t length, char* repair_alphabet, size_t base, char sign) {
+    int64_t res = 0;
+    int symbol;
+    for (size_t i = length - 1; i > 0 && symbol >= 0; --i) {
+        symbol = repair_alphabet[x[i]];
+        res = res * base + symbol;
+    }
+    if (symbol < 0) {
+        throw std::invalid_argument("value contains invalid symbols, can't cast to base");
+    }
+    if (sign) {
+        return -res;
+    }
+    return res * base + repair_alphabet[x[0]];
 }

@@ -9,7 +9,9 @@ setup_requires = [
 
 extra_compile_args = [
     "-O3",
-    # "--fsanitize=leak"
+    "-std=c++11",
+    # "-fsanitize=leak",
+    # "-fsanitize=address",
 ]
 
 ext = [

@@ -11,3 +11,5 @@ print(base.sign)
 print(base.base)
 print(base.alphabet)
 print(100, base(100), base.repair(base(100)))
+
+print(base.alphabet, base.repair, b'abcd', base.repair(b'abcd'))
